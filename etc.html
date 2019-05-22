@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+
+<html>
+   <head>
+      <title>Etc - GAMMA by TEMM GAMMA</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="assets/css/main.css" />
+      <style>
+            table {
+                border-collapse: collapse;
+                border: 2px black solid;
+                font: 12px sans-serif;
+            }
+
+            td {
+                border: 1px black solid;
+                padding: 5px;
+            }
+      </style>
+   </head>
+   <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+   <body class="subpage">
+
+      <!-- Header -->
+         <header id="header">
+            <div class="logo"><a href="index.html">GAMMA <span>by TEAM GAMMA</span></a></div>
+            <a href="#menu" class="toggle"><span>Menu</span></a>
+         </header>
+
+      <!-- Nav -->
+         <nav id="menu">
+            <ul class="links">
+               <li><a href="index.html">Home</a></li>
+               <li><a href="calculate.html">calculate</a></li>
+               <li><a href="etc.html">Etc</a></li>
+            </ul>
+         </nav>
+
+      <!-- Footer -->
+         <footer id="footer" class="wrapper">
+            <div class="inner">
+               <section>
+                  <div class="box">
+                     <div class="content">
+                        <h2 class="align-center">근처 병원 안내</h2>
+                        <hr/>
+                        <!-- 위치맵 -->
+                        <div id="map" style="width:100%; height:500px;"></div>
+
+                        <div class="field">
+                        <form action="#" method="post">
+                           <div class="field half first">
+                              <label for="name">Name</label>
+                              <input name="name" id="name" type="text" placeholder="Name">
+                           </div>
+                           <div class="field half">
+                              <label for="email">Email</label>
+                              <input name="email" id="email" type="email" placeholder="Email">
+                           </div>
+
+                           <div class="field">
+                              <label for="message">Message</label>
+                              <textarea name="message" id="message" rows="5" placeholder="Message"></textarea>
+                           </div>
+                           <ul class="actions align-center">
+                              <li><input value="Send" class="button special" type="submit"></li>
+                           </ul>
+                        </form>
+                     </div>
+                  </div>
+               </section>
+            </div>
+         </footer>
+         <!-- Three -->
+            <section id="Three" class="wrapper style2">
+                        <div class="inner">
+                           <header class="align-center">
+                              <h2>Dongguk University Computational Bioinformatics Lab</h2>
+                              <p>Engineeringbuilding 5107, Dongguk University ,30, Pildong-ro 1-gil, Jung-gu, Seoul, 04620, Republic of Korea</p>
+                              <p><font size : "4">Email : jwjoo1204@gmail.com | 2eding@dongguk.edu</font></p>
+                           </header>
+                        </div>
+            </section>
+
+      <!-- Scripts -->
+         <script src="assets/js/jquery.min.js"></script>
+         <script src="assets/js/jquery.scrolly.min.js"></script>
+         <script src="assets/js/jquery.scrollex.min.js"></script>
+         <script src="assets/js/util.js"></script>
+         <script src="assets/js/main.js"></script>
+         <script src="d3.min.js?v=3.2.8"></script>
+
+         <script>
+         var map, infoWindow;
+         var locations = [
+           ['Bondi Beach', -33.890542, 151.274856, 4],
+           ['Coogee Beach', -33.923036, 151.259052, 5],
+           ['Cronulla Beach', -34.028249, 151.157507, 3],
+           ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+           ['Maroubra Beach', -33.950198, 151.259302, 1]
+         ];
+         function initMap() {
+           map = new google.maps.Map(document.getElementById('map'), {
+             center: {lat: 36.0092, lng: 129.3232},
+             zoom: 15
+           });
+           infoWindow = new google.maps.InfoWindow  ;
+           var marker, i;
+           for (i = 0; i < locations.length; i++) {
+              marker = new google.maps.Marker({
+               position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+               map: map
+             });
+
+             google.maps.event.addListener(marker, 'click', (function(marker, i) {
+               return function() {
+                 infowindow.setContent(locations[i][0]);
+                 infowindow.open(map, marker);
+               }
+             })(marker, i));
+           }
+           // Try HTML5 geolocation.
+           if (navigator.geolocation) {
+             navigator.geolocation.getCurrentPosition(function(position) {
+               var pos = {
+                 lat: position.coords.latitude,
+                 lng: position.coords.longitude
+               };
+
+               infoWindow.setPosition(pos);
+               infoWindow.setContent('지금 현재위치는 여기입니다.');
+               infoWindow.open(map);
+               map.setCenter(pos);
+             }, function() {
+               handleLocationError(true, infoWindow, map.getCenter());
+             });
+           } else {
+             // Browser doesn't support Geolocation
+             handleLocationError(false, infoWindow, map.getCenter());
+           }
+         }
+
+         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+           infoWindow.setPosition(pos);
+           infoWindow.setContent(browserHasGeolocation ?
+                                 'Error: The Geolocation service failed.' :
+                                 'Error: Your browser doesn\'t support geolocation.');
+           infoWindow.open(map);
+         }
+         </script>
+         <script async defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKMYGcZZt1Lb7ymuqL7qCKL0tIOEI7uCo&callback=initMap">
+         </script>
+   </body>
+</html>

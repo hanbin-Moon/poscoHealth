@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+		Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+	-->
+<html>
+<head>
+	<title>Calculate - Transitive by TEMPLATED</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+	<!-- <script>
+		zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+		ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+	</script> -->
+	<script src="http://code.jquery.com/jquery-1.11.0.js">/</script>
+	<script>
+		$(function() {
+        // Geolocation API
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition (function(pos) {
+                $('#latitude').html(pos.coords.latitude);     // À§µµ
+                $('#longitude').html(pos.coords.longitude); // °æµµ
+            });
+        } else {
+            alert("ÀÌ ºê¶ó¿ìÀú¿¡¼­´Â GeolocationÀÌ Áö¿øµÇÁö ¾Ê½À´Ï´Ù.")
+        }
+			});
+	</script>
+	<style>
+		*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+
+		#myChart {
+			padding: 10px;
+		}+B\
+
+		#myChart-top {
+			border: 1px solid #D9D9D9;
+			box-shadow: 10px 10px 5px -4px rgba(224, 224, 224, 0.6);
+		}
+	</style>
+</head>
+
+<body class="subpage">
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo"><a href="index.html">GAMMA <span>by TEAM GAMMA</span></a></div>
+		<a href="#menu" class="toggle"><span>Menu</span></a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="calculate.html">calculate</a></li>
+			<li><a href="etc.html">Etc</a></li>
+		</ul>
+	</nav>
+
+	<!-- One -->
+	<section id="one" class="wrapper style2">
+		<div class="inner">
+			<div class="box">
+				<div class="content">
+					<h2 class="align-center">암 진단</h2>
+					<dl>
+						<dt>Item 1</dt>
+						<dd>
+							<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+						</dd>
+						<dt>Item 2</dt>
+						<dd>
+							<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+						</dd>
+					</dl>
+
+						</div>
+					</div> <!--좌측  -->
+
+
+
+						</div>
+	</section>
+	<!-- Four -->
+	<section id="four" class="wrapper style3">
+		<div class="inner">
+
+			<header class="align-center">
+				<h2>DONGGUK UNIVERSITY COMPUTATIONAL BIOINFORMATICS LAB</h2>
+				<p>Engineeringbuilding 5107, Dongguk University ,30, Pildong-ro 1-gil, Jung-gu, Seoul, 04620, Republic of Korea</p>
+				<p>
+					<font size : "4">Email : jwjoo1204@gmail.com | 2eding@dongguk.edu</font>
+				</p>
+			</header>
+		</div>
+	</section>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>function button_click(){
+		var bloodHigh = 0;
+		var bloodLow = 0;
+
+		var clsterol = 0;
+		var hdl = 0;
+		var ldl = 0;
+		var tg = 0;
+		var hg = 0;
+
+		var bloodSugar = 0;
+		var urineProtein = 0;
+		var creatinine = 0;
+
+		var ast = 0;
+		var alt = 0;
+		var gtp = 0;
+
+
+		var name = document.getElementById("name").value;
+		var sex = document.getElementById("sex").value;
+		var age = document.getElementById("age").value;
+		var height = document.getElementById("height").value;
+		var weight = document.getElementById("weight").value;
+		var waist = document.getElementById("waist").value;
+
+		bloodHigh = document.getElementById("bloodHigh").value;
+		bloodLow = document.getElementById("bloodLow").value;
+
+		clsterol = document.getElementById("clsterol").value;
+		hdl = document.getElementById("hdl").value;
+		ldl = document.getElementById("ldl").value;
+		tg = document.getElementById("tg").value;
+		hg = document.getElementById("hg").value;
+
+		bloodSugar = document.getElementById("bloodSugar").value;
+		urineProtein = document.getElementById("urineProtein").value;
+		creatinine = document.getElementById("creatinine").value;
+
+		ast = document.getElementById("ast").value;
+		alt = document.getElementById("alt").value;
+		gtp = document.getElementById("gtp").value;
+
+		var smoke = document.getElementById("smoke").value;
+
+		// BMI
+		document.getElementById("output_name").value=name;
+		document.getElementById("outputBMI").value=(weight/((height/100)*(height/100)));
+
+		// 당뇨
+		if(bloodSugar<100){
+				document.getElementById("outputDiabetes").value="정상";
+		}
+		else{
+			document.getElementById("outputDiabetes").value="당뇨병 의심";
+		}
+
+		// 혈압
+		if(bloodHigh>120 || bloodLow>80){
+				document.getElementById("outputBloodPressure").value="전고혈압 의심";
+		}
+		else if(bloodHigh>140 || bloodLow>90){
+				document.getElementById("outputBloodPressure").value="1단계 고혈압 의심";
+		}
+		else if(bloodHigh>160 || bloodLow>100){
+				document.getElementById("outputBloodPressure").value="2단계 고혈압 의심";
+		}
+		else{
+			document.getElementById("outputBloodPressure").value="정상";
+		}
+
+		//간질환
+		if(ast>35 || alt>40 || gtp>60){
+				document.getElementById("outputLiver").value="간장질환 의심";
+		}
+		else{
+			document.getElementById("outputLiver").value="정상";
+		}
+
+		//혈관질환
+		if(sex=='남' && (ldl>190 || clsterol>240 || hdl<40 || tg>500)	){
+				document.getElementById("outputVascular").value="혈관질환 아주위험";
+		}
+		else if(sex=='여' && (ldl>190 || clsterol>240 || hdl<50 || tg>500)	){
+				document.getElementById("outputVascular").value="혈관질환 아주위험";
+		}
+		else if((ldl>130 || clsterol>200 || tg>150)){
+				document.getElementById("outputVascular").value="혈관질환 위험";
+		}
+		else{
+			document.getElementById("outputVascular").value="정상";
+		}
+
+		//신장질환
+		var gfr;
+		if(sex=='남'){
+			gfr = (186*(creatinine)^(-1.154) * age^(-0.203));
+		}
+		else{
+			gfr = (186*(creatinine)^(-1.154) * age^(-0.203))*0.742;
+		}
+		if(gfr>=90){
+				document.getElementById("outputKidney").value="1단계 정상";
+		}
+		else if(gfr<90 && gfr>=60){
+				document.getElementById("outputKidney").value="2단계 잠재위험";
+		}
+		else if(gfr<60 && gfr>=30){
+				document.getElementById("outputKidney").value="3단계 위험";
+		}
+		else if(gfr<30 && gfr>=15){
+				document.getElementById("outputKidney").value="4단계 위험";
+		}
+		else{
+			document.getElementById("outputKidney").value="5단계 매우위험";
+		}
+
+		alert("output 출력");
+	}
+	</script>
+
+
+</body>
+
+</html>

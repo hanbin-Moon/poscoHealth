@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+		Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+	-->
+<html>
+<head>
+	<title>Calculate - Transitive by TEMPLATED</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+	<!-- <script>
+		zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+		ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+	</script> -->
+	<script src="http://code.jquery.com/jquery-1.11.0.js">/</script>
+	<script>
+		$(function() {
+        // Geolocation API
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition (function(pos) {
+                $('#latitude').html(pos.coords.latitude);     // À§µµ
+                $('#longitude').html(pos.coords.longitude); // °æµµ
+            });
+        } else {
+            alert("ÀÌ ºê¶ó¿ìÀú¿¡¼­´Â GeolocationÀÌ Áö¿øµÇÁö ¾Ê½À´Ï´Ù.")
+        }
+			});
+	</script>
+	<style>
+		*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+
+		#myChart {
+			padding: 10px;
+		}+B\
+
+		#myChart-top {
+			border: 1px solid #D9D9D9;
+			box-shadow: 10px 10px 5px -4px rgba(224, 224, 224, 0.6);
+		}
+	</style>
+</head>
+
+<body class="subpage">
+
+	<!-- Header -->
+	<header id="header">
+		<div class="logo"><a href="index.html">GAMMA <span>by TEAM GAMMA</span></a></div>
+		<a href="#menu" class="toggle"><span>Menu</span></a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="calculate.html">calculate</a></li>
+			<li><a href="etc.html">Etc</a></li>
+		</ul>
+	</nav>
+
+	<!-- One -->
+	<section id="one" class="wrapper style2">
+		<div class="inner">
+			<div class="box">
+				<div class="content">
+					<h4>Definition</h4>
+					<dl>
+						<dt>Item 1</dt>
+						<dd>
+							<p>Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+						</dd>
+					</dl>
+					<div class="row">
+						<div class="col" style="width:50%">
+						<h2 id="elements">신체정보 입력</h2>
+
+						<form action="upload_name.php" method="post" enctype="multipart/form-data">
+						<div class="col">
+							<div class="6u 12u$(xsmall)" style="display: inline">
+								<div class="row">
+									<div class="col" width:30%>
+									<dd style="width:100%">이름</dd>
+									<input type="text" style="width:100%" name="value" id="name" value="" placeholder="이름" margin-bottom="50px"/>
+									<dd style="width:100%">성별</dd>
+									<div class="select-wrapper" style="width:100%">
+										<select name="sex" id="sex">
+											<option value="">성별</option>
+											<option value="남">남</option>
+											<option value="여">여</option>
+										</select>
+									</div>
+
+								<dd style="width:100%">나이</dd>
+								<input type="text" style="width:100%" name="value" id="age" value="40" placeholder="40" align="right">
+								<dd style="width:100%">키(cm)</dd>
+								<input type="text" style="width:100%" name="value" id="height" value="180" placeholder="180" align="right">
+
+
+								<dd style="width:100%">몸무게(kg)</dd>
+								<input type="text" style="width:100%"name="value" id="weight" value="80" placeholder="80" margin-right="500px"/>
+								<dd style="width:100%">허리둘레(cm)</dd>
+								<input type="text" style="width:100%"name="value" id="waist" value="" placeholder="허리둘레" margin-bottom="50px"/>
+								<br>
+								<a href="#movePoint" href="#movePoint" class="button special scrolly" onclick="button_click();" >진단</a>
+							</div>
+
+							</div>
+								<br><br>
+
+								<!-- 고혈압 -->
+								<h3>고혈압</h3>
+								<dd>혈압(최고)</dd>
+								<input type="text" name="value" id="bloodHigh" value="" placeholder="혈압(최고)" margin-bottom="50px"/>
+								<dd>혈압(최저)</dd>
+								<input type="text" name="value" id="bloodLow" value="" placeholder="혈압(최저)" margin-bottom="50px"/>
+								<br>
+								<a href="#movePoint" href="#movePoint" class="button special scrolly" onclick="button_click();" >진단</a>
+								<br><br>
+
+								<!-- 이상지질혈증 -->
+								<h3>이상지질혈증</h3>
+								<dd>총콜레스테롤</dd>
+								<input type="text" name="value" id="clsterol" value="" placeholder="총콜레스테롤" margin-bottom="50px"/>
+								<dd>HDL콜레스테롤</dd>
+								<input type="text" name="value" id="hdl" value="" placeholder="HDL" margin-bottom="50px"/>
+								<dd>LDL콜레스테롤</dd>
+								<input type="text" name="value" id="ldl" value="" placeholder="LDL" margin-bottom="50px"/>
+								<dd>트리글리세라이드</dd>
+								<input type="text" name="value" id="tg" value="" placeholder="트리글리세라이드" margin-bottom="50px"/>
+								<br>
+								<a href="#movePoint" href="#movePoint" class="button special scrolly" onclick="button_click();" >진단</a>
+								<br><br>
+
+								<!-- 빈혈 -->
+								<h3>빈혈</h3>
+								<dd>혈색소</dd>
+								<input type="text" name="value" id="hg" value="" placeholder="혈색소" margin-bottom="50px"/>
+								<br>
+								<a href="#movePoint" href="#movePoint" class="button special scrolly" onclick="button_click();" >진단</a>
+								<br><br>
+
+								<!-- 당뇨 -->
+								<h3>당뇨</h3>
+								<dd>식전혈당</dd>
+								<input type="text" name="value" id="bloodSugar" value="" placeholder="식전혈당" margin-bottom="50px"/ width="50%">
+								<br>
+								<a href="#movePoint" href="#movePoint" class="button special scrolly" onclick="button_click();" >진단</a>
+								<br><br>
+
+								<!-- 신장질환 -->
+								<h3>신장질환</h3>
+								<dd>요단백</dd>
+								<input type="text" name="value" id="urineProtein" value="" placeholder="요단백" margin-bottom="50px"/>
+								<dd>혈청크레아티닌</dd>
+								<input type="text" name="value" id="creatinine" value="" placeholder="혈청크레아티닌" margin-bottom="50px"/>
+								<br>
+								<a href="#movePoint" href="#movePoint" class="button special scrolly" onclick="button_click();" >진단</a>
+								<br><br>
+
+								<!-- 간장질환 -->
+								<h3>간장질환</h3>
+								<dd>혈청지오티AST</dd>
+								<input type="text" name="value" id="ast" value="" placeholder="혈청지오티AST" margin-bottom="50px"/>
+								<dd>혈청지오티ALT</dd>
+								<input type="text" name="value" id="alt" value="" placeholder="혈청지오티ALT" margin-bottom="50px"/>
+								<dd>감마지티피</dd>
+								<input type="text" name="value" id="gtp" value="" placeholder="감마지티피" margin-bottom="50px"/>
+								<br>
+								<a href="#movePoint" href="#movePoint" class="button special scrolly" onclick="button_click();" >진단</a>
+								<br><br>
+
+								<!-- 기타/흡연상태 -->
+								<h3>기타</h3>
+								<dd>흡연상태</dd>
+								<!-- <input type="text" name="value" id="smoke" value="" placeholder="흡연상태" margin-bottom="50px"/> -->
+								<div class="select-wrapper">
+									<select name="Cate" id="smoke">
+										<option value=""> ---- 흡연상태 ---- </option>
+										<option value="1">흡연</option>
+										<option value="2">과거 흡연</option>
+										<option value="3">현재 흡연</option>
+									</select>
+								</div>
+								<br><br>
+
+								<a href="#movePoint" href="#movePoint" class="button special scrolly" onclick="button_click();">진단</a>
+
+							</div>
+						</div>
+					</div> <!--좌측  -->
+				</form>
+
+							<div class="6u$ 12u$(medium)">
+								<h3 id="movePoint"> Output</h3>
+								<dd>이름</dd>
+								<textarea id="output_name" style="width:70px height:50px"readonly="readonly"></textarea>
+								<dd>BMI</dd>
+								<textarea id="outputBMI" style="width:70px height:50px"readonly="readonly"></textarea>
+								<dd>당뇨</dd>
+								<textarea id="outputDiabetes" style="width:70px height:50px"readonly="readonly"></textarea>
+								<dd>혈압</dd>
+								<textarea id="outputBloodPressure" style="width:70px height:50px"readonly="readonly"></textarea>
+								<dd>간장질환</dd>
+								<textarea id="outputLiver" style="width:70px height:50px"readonly="readonly"></textarea>
+								<dd>혈관질환</dd>
+								<textarea id="outputVascular" style="width:70px height:50px"readonly="readonly"></textarea>
+								<dd>신장질환</dd>
+								<textarea id="outputKidney" style="width:70px height:50px"readonly="readonly"></textarea>
+								<br>
+
+								<div id='myChart'></div>
+								<div id='myChart2'></div>
+								<a href="etc.html" class="button special scrolly">근처 병원 안내</a>
+								<a href="cancer.html" class="button special scrolly">암 진단</a>
+								<!--<div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>-->
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Four -->
+	<section id="four" class="wrapper style3">
+		<div class="inner">
+
+			<header class="align-center">
+				<h2>DONGGUK UNIVERSITY COMPUTATIONAL BIOINFORMATICS LAB</h2>
+				<p>Engineeringbuilding 5107, Dongguk University ,30, Pildong-ro 1-gil, Jung-gu, Seoul, 04620, Republic of Korea</p>
+				<p>
+					<font size : "4">Email : jwjoo1204@gmail.com | 2eding@dongguk.edu</font>
+				</p>
+			</header>
+		</div>
+	</section>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>function button_click(){
+		var bloodHigh = 0;
+		var bloodLow = 0;
+
+		var clsterol = 0;
+		var hdl = 60;
+		var ldl = 0;
+		var tg = 0;
+		var hg = 0;
+
+		var bloodSugar = 0;
+		var urineProtein = 0;
+		var creatinine = 0;
+
+		var ast = 0;
+		var alt = 0;
+		var gtp = 0;
+
+
+		var name = document.getElementById("name").value;
+		var sex = document.getElementById("sex").value;
+		var age = document.getElementById("age").value;
+		var height = document.getElementById("height").value;
+		var weight = document.getElementById("weight").value;
+		var waist = document.getElementById("waist").value;
+
+		bloodHigh = document.getElementById("bloodHigh").value;
+		bloodLow = document.getElementById("bloodLow").value;
+
+		clsterol = document.getElementById("clsterol").value;
+		hdl = document.getElementById("hdl").value;
+		ldl = document.getElementById("ldl").value;
+		tg = document.getElementById("tg").value;
+		hg = document.getElementById("hg").value;
+
+		bloodSugar = document.getElementById("bloodSugar").value;
+		urineProtein = document.getElementById("urineProtein").value;
+		creatinine = document.getElementById("creatinine").value;
+
+		ast = document.getElementById("ast").value;
+		alt = document.getElementById("alt").value;
+		gtp = document.getElementById("gtp").value;
+
+		var smoke = document.getElementById("smoke").value;
+
+		// BMI
+		document.getElementById("output_name").value=name;
+		document.getElementById("outputBMI").value=(weight/((height/100)*(height/100)));
+
+		// 당뇨
+		if(bloodSugar<100){
+				document.getElementById("outputDiabetes").value="정상";
+		}
+		else{
+			document.getElementById("outputDiabetes").value="당뇨병 의심";
+		}
+
+		// 혈압
+
+		if(bloodHigh>160 || bloodLow>100){
+				document.getElementById("outputBloodPressure").value="2단계 고혈압 의심";
+		}
+		else if(bloodHigh>140 || bloodLow>90){
+				document.getElementById("outputBloodPressure").value="1단계 고혈압 의심";
+		}
+		else if(bloodHigh>120 || bloodLow>80){
+				document.getElementById("outputBloodPressure").value="전고혈압 의심";
+		}
+		else{
+			document.getElementById("outputBloodPressure").value="정상";
+		}
+
+		//간질환
+		if(ast>35 || alt>40 || gtp>60){
+				document.getElementById("outputLiver").value="간장질환 의심";
+		}
+		else{
+			document.getElementById("outputLiver").value="정상";
+		}
+
+		//혈관질환
+		if(sex=='남' && (ldl>190 || clsterol>240 || hdl<40 || tg>500)	){
+				document.getElementById("outputVascular").value="혈관질환 아주위험";
+		}
+		else if(sex=='여' && (ldl>190 || clsterol>240 || hdl<50 || tg>500)	){
+				document.getElementById("outputVascular").value="혈관질환 아주위험";
+		}
+		else if((ldl>130 || clsterol>200 || tg>150)){
+				document.getElementById("outputVascular").value="혈관질환 위험";
+		}
+		else{
+			document.getElementById("outputVascular").value="정상";
+		}
+
+		//신장질환
+		var gfr;
+		if(sex=='남'){
+			gfr = (186*(creatinine)^(-1.154) * age^(-0.203));
+		}
+		else{
+			gfr = (186*(creatinine)^(-1.154) * age^(-0.203))*0.742;
+		}
+		if(gfr>=90){
+				document.getElementById("outputKidney").value="1단계 정상";
+		}
+		else if(gfr<90 && gfr>=60){
+				document.getElementById("outputKidney").value="2단계 잠재위험";
+		}
+		else if(gfr<60 && gfr>=30){
+				document.getElementById("outputKidney").value="3단계 위험";
+		}
+		else if(gfr<30 && gfr>=15){
+				document.getElementById("outputKidney").value="4단계 위험";
+		}
+		else{
+			document.getElementById("outputKidney").value="5단계 매우위험";
+		}
+
+		alert("output 출력");
+	}
+	</script>
+
+
+</body>
+
+</html>
